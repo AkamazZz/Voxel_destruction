@@ -14,9 +14,9 @@ public class Shoot : MonoBehaviour
        if(Input.GetMouseButtonDown(0))
         {
             var spawnFurther = _point.transform.position;
-         
             GameObject bullet = Instantiate(_projectile, spawnFurther, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward*_speed, ForceMode.Impulse);
+            //bullet.GetComponent<Rigidbody>().AddForce(_point.transform.position, ForceMode.Impulse);
+            bullet.gameObject.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * _speed;
         }
     }
 }
